@@ -15,18 +15,22 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        //USE USER MODEL TO A CREATE A USER
-        $user1 = User::create([
+
+        //
+        $user = User::create([
             'name' => 'Marley',
-            'email' => 'marley@gmail.com',
+            'email' => 'marley1@gmail.com',
             'password' => 'dieavirgin123'
         ]);
-       //USE POST MODEL TO CREATE A POST
-        $post1 = Post::create([
-            'user_id' => $user1->id,
-            'title' => 'My Favorite Song RN',
-            'content' => 'Gus Dapperton - Moodna, Once With Grace'
+
+        $user->save();
+
+        $post = Post::create([
+            'user_id' => $user->id,
+            'title' => 'Sade',
+            'content' => 'I Love You'
         ]);
-       
+
+        $post->save();
     }
 }
